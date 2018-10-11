@@ -2,6 +2,7 @@
 - dot files set without symlinks
 - alias `git` to 'checkout' and use `checkout` to manage config files
 - setup done via script as `bash <(curl -s http://openbracket.com/config-install)`
+- add target environment public key to github
 
 
 ### Inspired by
