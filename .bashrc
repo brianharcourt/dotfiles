@@ -92,6 +92,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias gs='git status'
+alias gdn='git diff --name-only'
+alias gco='git checkout'
+alias gb='git branch'
+
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -111,9 +117,16 @@ fi
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
+    if [ -f "/usr/share/bash-completion/completions/git" ]; then
+        source /usr/share/bash-completion/completions/git
+        __git_complete gdn _git_diff
+        __git_complete gco _git_checkout
+        __git_complete gb _git_branch
+    fi
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
 fi
+
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
