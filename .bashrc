@@ -91,6 +91,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ff10='ffplay -loop 0 -vf "scale=10*iw:-1"'
+alias ff='ffplay -loop 0 -vf "scale=4*iw:-1"'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
